@@ -36,7 +36,12 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
     };
 
     return (
-        <View style={styles.screen}>
+        <LinearGradient
+            colors={['#8c91f0', 'white']}
+            start={{ x: 0.8, y: 0 }}
+            end={{ x: 0.8, y: 0.9 }}
+            style={styles.gradiantStyle}
+        >
             <ScrollView contentContainerStyle={styles.content}>
                 <Text style={styles.header}>Select Your Account Type</Text>
 
@@ -55,7 +60,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
                         </TouchableOpacity>
                     ))}
                 </View>
-
+                {/* </LinearGradient> */}
                 <TouchableOpacity style={styles.logout} onPress={logout}>
                     <Text style={styles.logoutText}>Logout</Text>
                 </TouchableOpacity>
@@ -63,31 +68,45 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
             <View style={styles.tabBar}>
                 <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('Home')}>
-                    <MaterialIcons name="home" size={24} color={activeTab === 'Home' ? '#f06d2f' : '#9aa3ad'} />
+                    <MaterialIcons name="home" size={24} color={activeTab === 'Home' ? 'black' : '#9aa3ad'} />
                     <Text style={[styles.tabLabel, activeTab === 'Home' && styles.tabLabelActive]}>Home</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('Orders')}>
-                    <MaterialIcons name="shopping-bag" size={24} color={activeTab === 'Orders' ? '#f06d2f' : '#9aa3ad'} />
+                    <MaterialIcons name="shopping-bag" size={24} color={activeTab === 'Orders' ? 'black' : '#9aa3ad'} />
                     <Text style={[styles.tabLabel, activeTab === 'Orders' && styles.tabLabelActive]}>Orders</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('Chats')}>
-                    <MaterialIcons name="chat" size={24} color={activeTab === 'Chats' ? '#f06d2f' : '#9aa3ad'} />
+                    <MaterialIcons name="chat" size={24} color={activeTab === 'Chats' ? 'black' : '#9aa3ad'} />
                     <Text style={[styles.tabLabel, activeTab === 'Chats' && styles.tabLabelActive]}>Chats</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('Profile')}>
-                    <MaterialIcons name="person" size={24} color={activeTab === 'Profile' ? '#f06d2f' : '#9aa3ad'} />
+                    <MaterialIcons name="person" size={24} color={activeTab === 'Profile' ? 'black' : '#9aa3ad'} />
                     <Text style={[styles.tabLabel, activeTab === 'Profile' && styles.tabLabelActive]}>Profile</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </LinearGradient>
     );
 };
 
 const styles = StyleSheet.create({
-    screen: { flex: 1, backgroundColor: '#f7f8fb' },
-    content: { paddingTop: 24, paddingHorizontal: 16, paddingBottom: 120, alignItems: 'center' },
-    header: { fontSize: 22, fontWeight: '700', marginBottom: 16, color: '#f06d2f' },
-    grid: { width: '100%', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' },
+    content: {
+        paddingTop: 24,
+        paddingHorizontal: 16,
+        paddingBottom: 120,
+        alignItems: 'center'
+    },
+    header: {
+        fontSize: 22,
+        fontWeight: '700',
+        marginBottom: 16,
+        color: '#f6f3f7'
+    },
+    grid: {
+        width: '100%',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between'
+    },
     card: {
         backgroundColor: '#fff',
         borderRadius: 10,
@@ -99,13 +118,35 @@ const styles = StyleSheet.create({
         shadowRadius: 6,
         elevation: 3,
     },
-    cardSmall: { width: (width - 48) / 3, height: 120, padding: 8 },
-    cardLarge: { width: (width - 40), height: 140, padding: 10 },
-    cardImage: { flex: 1, justifyContent: 'center' },
-    icon: { fontSize: 34 },
-    cardTitle: { paddingTop: 8, fontSize: 14, fontWeight: '600', textAlign: 'center', color: '#0b4b6f' },
-    logout: { marginTop: 8 },
-    logoutText: { color: '#d9534f' },
+    cardSmall: {
+        width: (width - 48) / 3,
+        height: 120, padding: 8
+    },
+    cardLarge: {
+        width: (width - 40),
+        height: 140,
+        padding: 10
+    },
+    cardImage: {
+        flex: 1,
+        justifyContent: 'center'
+    },
+    icon: {
+        fontSize: 34
+    },
+    cardTitle: {
+        paddingTop: 8,
+        fontSize: 14,
+        fontWeight: '600',
+        textAlign: 'center',
+        color: '#0b4b6f'
+    },
+    logout: {
+        marginTop: 8
+    },
+    logoutText: {
+        color: '#d9534f'
+    },
     tabBar: {
         position: 'absolute',
         left: 12,
@@ -118,15 +159,34 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-around',
         shadowColor: '#000',
-        shadowOpacity: 0.06,
+        shadowOpacity: 0.09,
         shadowRadius: 8,
         elevation: 6,
     },
-    tab: { alignItems: 'center', justifyContent: 'center' },
-    tabIcon: { fontSize: 20, color: '#9aa3ad' },
-    tabLabel: { fontSize: 12, color: '#9aa3ad', marginTop: 2 },
-    tabActive: { color: '#f06d2f' },
-    tabLabelActive: { color: '#f06d2f', fontWeight: '700' },
+    tab: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    tabIcon: {
+        fontSize: 20,
+        color: '#9aa3ad'
+    },
+    tabLabel: {
+        fontSize: 12,
+        color: '#9aa3ad',
+        marginTop: 2
+    },
+    tabActive: {
+        color: 'black'
+    },
+    tabLabelActive: {
+        color: 'black',
+        fontWeight: '700'
+    },
+    gradiantStyle: {
+        flex: 1,
+        borderRadius: 3,
+    }
 });
 
 export default HomeScreen;
