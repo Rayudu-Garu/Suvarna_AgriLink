@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-
+import Farmer from '../components/FamerScreen'
 const { width } = Dimensions.get('window');
 
 const tiles = [
@@ -19,13 +19,13 @@ const tiles = [
         id: 'Farmer', 
         title: 'Farmer', 
         image: require('../assets/images/tractor_new.png'),
-        navigation: 'FarmerScreen'
+        navigation: 'Farmer'
     },
     { 
         id: 'BuildingWorker', 
         title: 'Building Worker', 
         image: require('../assets/images/builder_Icon.png'),
-        navigation: 'BuildingWorkerScreen'
+        navigation:'BuildingRentals' 
     },
     { 
         id: 'Painter', 
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: '700',
         marginBottom: 16,
-        color: '#f6f3f7'
+        color: '#FFFFFF'
     },
     grid: {
         width: '100%',
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     card: {
-        backgroundColor: '#e2dddd',
+        backgroundColor: '#F5F5F5',
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '600',
         textAlign: 'center',
-        color: '#0b4b6f'
+        color: '#222222'
     },
     logout: {
         marginTop: 8
